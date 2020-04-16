@@ -1,0 +1,40 @@
+{% extends 'homepage/base.html' %}
+{% block title %}
+<title> Hello, Artie!</title>
+{% endblock %}
+
+{% block body %}
+
+    <h1>Articles page!!!</h1>
+    {{ articles }}
+
+    {% for num in articles  %}
+         {% if num == 1 %}
+       <h1> Sosiska {{ num }}</h1>
+
+        {% else %}
+<div> Arti {{ num }}</div>
+{% endif %}
+{% endfor %}
+
+  {% for num2 in users %}
+
+  <div>{{ num2 }}</div>
+  {% empty %}
+ <div>Pustota</div>
+{% endfor %}
+
+    <ul class="list-group"></ul>
+    {% for num in articles %}
+        <li class="list-group-item  {% cycle 'list-group-item-success' 'list-group-item-secondary' %}">art № {{num}}</li>
+    {% endfor %}
+    {% comment %}
+    <li class="list-group-item list-group-item-warning">art № num</li>
+    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+
+    {% endcomment %}
+<div>{{ obj }}</div>
+    {% if obj.foo < obj.bar %}
+    <div>{{ obj.foo }} > bar</div>
+    {% endif %}
+{% endblock %}
